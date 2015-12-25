@@ -49,14 +49,14 @@ function helper($helpers)
         continue;
     }
     if (file_exists(DEDEINC.'/helpers/'.$helpers.'.helper.php'))
-    { 
+    {
         include_once(DEDEINC.'/helpers/'.$helpers.'.helper.php');
         $_helpers[$helpers] = TRUE;
     }
     // 无法载入小助手
     if ( ! isset($_helpers[$helpers]))
     {
-        exit('Unable to load the requested file: helpers/'.$helpers.'.helper.php');                
+        exit('Unable to load the requested file: helpers/'.$helpers.'.helper.php');
     }
 }
 
@@ -78,14 +78,14 @@ function dede_htmlspecialchars($str) {
  */
 function RunApp($ct, $ac = '',$directory = '')
 {
-    
+
     $ct = preg_replace("/[^0-9a-z_]/i", '', $ct);
     $ac = preg_replace("/[^0-9a-z_]/i", '', $ac);
-        
+
     $ac = empty ( $ac ) ? $ac = 'index' : $ac;
 	if(!empty($directory)) $path = DEDECONTROL.'/'.$directory. '/' . $ct . '.php';
 	else $path = DEDECONTROL . '/' . $ct . '.php';
-        
+
 	if (file_exists ( $path ))
 	{
 		require $path;
@@ -109,7 +109,7 @@ function RunApp($ct, $ac = '',$directory = '')
         $instance->$action();
         unset($instance);
     } else $loaderr = TRUE;
-        
+
     if ($loaderr)
     {
         if (DEBUG_LEVEL === TRUE)
@@ -186,7 +186,7 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
 {
     if(empty($GLOBALS['cfg_plus_dir'])) $GLOBALS['cfg_plus_dir'] = '..';
 
-    $htmlhead  = "<html>\r\n<head>\r\n<title>DedeCMS提示信息</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\r\n<meta name=\"renderer\" content=\"webkit\">\r\n<meta http-equiv=\"Cache-Control\" content=\"no-siteapp\" />";
+    $htmlhead  = "<html>\r\n<head>\r\n<title>欧亚男科-提示信息</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\r\n<meta name=\"renderer\" content=\"webkit\">\r\n<meta http-equiv=\"Cache-Control\" content=\"no-siteapp\" />";
     $htmlhead .= "<base target='_self'/>\r\n<style>div{line-height:160%;}</style></head>\r\n<body leftmargin='0' topmargin='0' bgcolor='#FFFFFF'>".(isset($GLOBALS['ucsynlogin']) ? $GLOBALS['ucsynlogin'] : '')."\r\n<center>\r\n<script>\r\n";
     $htmlfoot  = "</script>\r\n</center>\r\n</body>\r\n</html>\r\n";
 
@@ -212,18 +212,18 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
             $gourl = 'javascript:;';
             $func .= "window.parent.document.getElementById('{$tgobj}').style.display='none';\r\n";
         }
-        
+
         $func .= "      var pgo=0;
       function JumpUrl(){
         if(pgo==0){ location='$gourl'; pgo=1; }
       }\r\n";
         $rmsg = $func;
         $rmsg .= "document.write(\"<br /><div style='width:450px;padding:0px;border:1px solid #DADADA;'>";
-        $rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>DedeCMS 提示信息！</b></div>\");\r\n";
+        $rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>欧亚男科-提示信息！</b></div>\");\r\n";
         $rmsg .= "document.write(\"<div style='height:130px;font-size:10pt;background:#ffffff'><br />\");\r\n";
         $rmsg .= "document.write(\"".str_replace("\"","“",$msg)."\");\r\n";
         $rmsg .= "document.write(\"";
-        
+
         if($onlymsg==0)
         {
             if( $gourl != 'javascript:;' && $gourl != '')

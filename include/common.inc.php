@@ -24,28 +24,28 @@ define('DEDEAPPTPL', './templates');
 
 define('DEBUG_LEVEL', FALSE);
 
-if (version_compare(PHP_VERSION, '5.3.0', '<')) 
+if (version_compare(PHP_VERSION, '5.3.0', '<'))
 {
     set_magic_quotes_runtime(0);
 }
 
-if (version_compare(PHP_VERSION, '5.4.0', '>=')) 
+if (version_compare(PHP_VERSION, '5.4.0', '>='))
 {
     if (!function_exists('session_register'))
     {
         function session_register()
-        { 
-            $args = func_get_args(); 
-            foreach ($args as $key){ 
-                $_SESSION[$key]=$GLOBALS[$key]; 
-            } 
-        } 
+        {
+            $args = func_get_args();
+            foreach ($args as $key){
+                $_SESSION[$key]=$GLOBALS[$key];
+            }
+        }
         function session_is_registered($key)
         {
-            return isset($_SESSION[$key]); 
+            return isset($_SESSION[$key]);
         }
-        function session_unregister($key){ 
-            unset($_SESSION[$key]); 
+        function session_unregister($key){
+            unset($_SESSION[$key]);
         }
     }
 }
@@ -75,14 +75,14 @@ function _RunMagicQuotes(&$svar)
     return $svar;
 }
 
-if (!defined('DEDEREQUEST')) 
+if (!defined('DEDEREQUEST'))
 {
     //检查和注册外部提交的变量   (2011.8.10 修改登录时相关过滤)
     function CheckRequest(&$val) {
         if (is_array($val)) {
             foreach ($val as $_k=>$_v) {
                 if($_k == 'nvarname') continue;
-                CheckRequest($_k); 
+                CheckRequest($_k);
                 CheckRequest($val[$_k]);
             }
         } else
@@ -93,14 +93,14 @@ if (!defined('DEDEREQUEST'))
             }
         }
     }
-    
+
     //var_dump($_REQUEST);exit;
     CheckRequest($_REQUEST);
 	CheckRequest($_COOKIE);
 
     foreach(Array('_GET','_POST','_COOKIE') as $_request)
     {
-        foreach($$_request as $_k => $_v) 
+        foreach($$_request as $_k => $_v)
 		{
 			if($_k == 'nvarname') ${$_k} = $_v;
 			else ${$_k} = _RunMagicQuotes($_v);
@@ -188,11 +188,11 @@ $cfg_templets_skin = empty($cfg_df_style)? $cfg_mainsite.$cfg_templets_dir."/def
 $cfg_cmsurl = $cfg_mainsite.$cfg_cmspath;
 
 //插件目录，这个目录是用于存放计数器、投票、评论等程序的必要动态程序
-$cfg_plus_dir = $cfg_cmspath.'/plus';
+$cfg_plus_dir = $cfg_cmspath.'/tools';
 $cfg_phpurl = $cfg_mainsite.$cfg_plus_dir;
 
-$cfg_mobile_dir = $cfg_cmspath.'/m';
-$cfg_mobileurl = $cfg_mainsite.$cfg_mobile_dir;
+//$cfg_mobile_dir = $cfg_cmspath.'/m';
+//$cfg_mobileurl = $cfg_mainsite.$cfg_mobile_dir;
 
 $cfg_data_dir = $cfg_cmspath.'/data';
 $cfg_dataurl = $cfg_mainsite.$cfg_data_dir;
@@ -202,7 +202,7 @@ $cfg_member_dir = $cfg_cmspath.'/member';
 $cfg_memberurl = $cfg_mainsite.$cfg_member_dir;
 
 //专题列表的存放路径
-$cfg_special = $cfg_cmspath.'/special';
+$cfg_special = $cfg_cmspath.'/zhuanti';
 $cfg_specialurl = $cfg_mainsite.$cfg_special;
 
 //附件目录
@@ -225,17 +225,17 @@ $cfg_soft_dir = $cfg_medias_dir.'/soft';
 $cfg_other_medias = $cfg_medias_dir.'/media';
 
 //软件摘要信息，****请不要删除本项**** 否则系统无法正确接收系统漏洞或升级信息
-$cfg_version = 'V57_UTF8_SP1';
+$cfg_version = 'V1.0';
 $cfg_soft_lang = 'utf-8';
 $cfg_soft_public = 'base';
 
-$cfg_softname = '织梦内容管理系统';
-$cfg_soft_enname = 'DedeCMS';
-$cfg_soft_devteam = 'DedeCMS官方团队';
+$cfg_softname = '欧亚男科网站管理系统';
+$cfg_soft_enname = 'OuyaCMS';
+$cfg_soft_devteam = 'DedeCMS官方团队 & 欧亚王力';
 
 //文档的默认命名规则
 $art_shortname = $cfg_df_ext = '.html';
-$cfg_df_namerule = '{typedir}/{Y}/{M}{D}/{aid}'.$cfg_df_ext;
+$cfg_df_namerule = '{typedir}/ouya_{aid}'.$cfg_df_ext;
 
 //新建目录的权限，如果你使用别的属性，本程不保证程序能顺利在Linux或Unix系统运行
 if(isset($cfg_ftp_mkdir) && $cfg_ftp_mkdir=='Y')
@@ -306,7 +306,7 @@ function __autoload($classname)
         {
             require DEDEINC.'/'.$libclassfile;
         }
-        else if( is_file ( DEDEMODEL.'/'.$classfile ) ) 
+        else if( is_file ( DEDEMODEL.'/'.$classfile ) )
         {
             require DEDEMODEL.'/'.$classfile;
         }

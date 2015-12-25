@@ -173,7 +173,7 @@ CREATE TABLE `#@__archives` (
   `typeid` smallint(5) unsigned NOT NULL default '0',
   `typeid2` varchar(90) NOT NULL default '0',
   `sortrank` int(10) unsigned NOT NULL default '0',
-  `flag` set('c','h','p','f','s','j','a','b') default NULL,
+  `flag` set('c','h','p','f','s','j','a','b','r','t','u','v','w','x','y','z') default NULL,
   `ismake` smallint(6) NOT NULL default '0',
   `channel` smallint(6) NOT NULL default '1',
   `arcrank` smallint(6) NOT NULL default '0',

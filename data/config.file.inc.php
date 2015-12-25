@@ -6,11 +6,11 @@
    步,则需要在这个文件中进行配置,配置方式如下:
    $remotefile[] = array(
        'filedir' => '/yourdir', //同步文件夹目录
-       'description' => '这里是文件夹说明', 
+       'description' => '这里是文件夹说明',
        'dfserv' => '0', //默认服务器选项,可以在系统后台[系统设置]-[服务器分布/远程 ]中配置
        'state' => '0', //同步状态,0:未同步 1:已同步
    );
------------------------------------------------------------------------------------------------*/   
+-----------------------------------------------------------------------------------------------*/
 global $remotefile;
 $remotefile = array();
 
@@ -19,7 +19,7 @@ $remotefile = array();
 #<s_config>
 
 $remotefile[0] = array(
-  'filedir'=>'/a',
+  'filedir'=>'/',
   'description'=>'文档HTML默认保存路',
   'dfserv'=>0,
   'state'=>1,
@@ -40,7 +40,7 @@ $remotefile[2] = array(
   'issystem'=>1
 );
 $remotefile[3] = array(
-  'filedir'=>'/special',
+  'filedir'=>'/zhuanti',
   'description'=>'专题目录',
   'dfserv'=>0,
   'state'=>1,

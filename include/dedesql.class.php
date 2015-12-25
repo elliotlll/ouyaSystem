@@ -107,11 +107,11 @@ class DedeSql
         else
         {
             $i = 0;
-			
-            while (!$this->linkID) 
+
+            while (!$this->linkID)
             {
                 if ($i > 100) break;
-                
+
                 if(!$pconnect)
                 {
                     $this->linkID  = @mysql_connect($this->dbHost,$this->dbUser,$this->dbPwd);
@@ -122,11 +122,11 @@ class DedeSql
                 }
                 $i++;
             }
-			
+
             //复制一个对象副本
             CopySQLPoint($this);
         }
-		
+
         //处理错误，成功连接则选择数据库
         if(!$this->linkID)
         {
@@ -137,7 +137,7 @@ class DedeSql
         @mysql_select_db($this->dbName);
         $mysqlver = explode('.',$this->GetVersion());
         $mysqlver = $mysqlver[0].'.'.$mysqlver[1];
-		
+
         if($mysqlver>4.0)
         {
             @mysql_query("SET NAMES '".$GLOBALS['cfg_db_language']."', character_set_client=binary, sql_mode='', interactive_timeout=3600 ;", $this->linkID);
@@ -145,7 +145,7 @@ class DedeSql
 
         return TRUE;
     }
-    
+
     //为了防止采集等需要较长运行时间的程序超时，在运行这类程序时设置系统等待和交互时间
     function SetLongLink()
     {
@@ -183,10 +183,10 @@ class DedeSql
     {
         @mysql_close($dblink);
     }
-    
-    function Esc( $_str ) 
+
+    function Esc( $_str )
     {
-        if ( version_compare( phpversion(), '4.3.0', '>=' ) ) 
+        if ( version_compare( phpversion(), '4.3.0', '>=' ) )
         {
             return @mysql_real_escape_string( $_str );
         } else {
@@ -224,12 +224,12 @@ class DedeSql
         if($this->safeCheck) CheckSql($this->queryString,'update');
 		$t1 = ExecTime();
 		$rs = mysql_query($this->queryString,$this->linkID);
-		
+
         //查询性能测试
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
-            //echo $this->queryString."--{$queryTime}<hr />\r\n"; 
+            //echo $this->queryString."--{$queryTime}<hr />\r\n";
         }
         return $rs;
     }
@@ -262,14 +262,14 @@ class DedeSql
         }
 		$t1 = ExecTime();
         mysql_query($this->queryString,$this->linkID);
-		
+
         //查询性能测试
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
-            //echo $this->queryString."--{$queryTime}<hr />\r\n"; 
+            //echo $this->queryString."--{$queryTime}<hr />\r\n";
         }
-		
+
         return mysql_affected_rows($this->linkID);
     }
 
@@ -277,12 +277,12 @@ class DedeSql
     {
         return $this->ExecuteNoneQuery($sql);
     }
-    
+
     function GetFetchRow($id='me')
     {
         return @mysql_fetch_row($this->result[$id]);
     }
-    
+
     function GetAffectedRows()
     {
         return mysql_affected_rows($this->linkID);
@@ -305,22 +305,22 @@ class DedeSql
         {
             $this->SetQuery($sql);
         }
-		
+
         //SQL语句安全检查
         if($this->safeCheck)
         {
             CheckSql($this->queryString);
         }
-		
+
         $t1 = ExecTime();
-        
+
         $this->result[$id] = mysql_query($this->queryString,$this->linkID);
-        
+
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
         }
-        
+
         if(!empty($this->result[$id]) && $this->result[$id]===FALSE)
         {
             $this->DisplayError(mysql_error()." <br />Error sql: <font color='red'>".$this->queryString."</font>");
@@ -434,7 +434,7 @@ class DedeSql
             $this->Open(FALSE);
             $dsql->isClose = FALSE;
         }
-        
+
         $rs = @mysql_query("SELECT VERSION();",$this->linkID);
         $row = @mysql_fetch_array($rs);
         $mysql_version = $row[0];
@@ -520,7 +520,7 @@ class DedeSql
     {
         $this->SetQuery($sql);
     }
-	
+
 	function RecordLog($runtime=0)
 	{
 		$RecordLogFile = dirname(__FILE__).'/../data/mysqli_record_log.inc';
@@ -530,7 +530,7 @@ class DedeSql
 ------------------------------------------
 SQL:{$this->queryString}
 Page:$url
-Runtime:$runtime	
+Runtime:$runtime
 EOT;
         $fp = @fopen($RecordLogFile, 'a');
         @fwrite($fp, $savemsg);
@@ -552,16 +552,16 @@ EOT;
         $emsg .= "<div style='color:blue'><br />Error page: <font color='red'>".$this->GetCurUrl()."</font></div>\r\n";
         $emsg .= "<div>Error infos: {$msg}</div>\r\n";
         $emsg .= "<br /></div></div>\r\n";
-        
+
         echo $emsg;
-        
+
         $savemsg = 'Page: '.$this->GetCurUrl()."\r\nError: ".$msg."\r\nTime".date('Y-m-d H:i:s');
         //保存MySql错误日志
         $fp = @fopen($errorTrackFile, 'a');
         @fwrite($fp, '<'.'?php  exit();'."\r\n/*\r\n{$savemsg}\r\n*/\r\n?".">\r\n");
         @fclose($fp);
     }
-    
+
     //获得当前的脚本网址
     function GetCurUrl()
     {
@@ -582,14 +582,20 @@ EOT;
         }
         return $nowurl;
     }
-    
+
 }
 
+/*
 $arrs1 = array(0x63,0x66,0x67,0x5f,0x70,0x6f,0x77,0x65,0x72,0x62,0x79);
 $arrs2 = array(0x20,0x3c,0x61,0x20,0x68,0x72,0x65,0x66,0x3d,0x68,0x74,0x74,0x70,0x3a,0x2f,0x2f,
 0x77,0x77,0x77,0x2e,0x64,0x65,0x64,0x65,0x63,0x6d,0x73,0x2e,0x63,0x6f,0x6d,0x20,0x74,0x61,0x72,
 0x67,0x65,0x74,0x3d,0x27,0x5f,0x62,0x6c,0x61,0x6e,0x6b,0x27,0x3e,0x50,0x6f,0x77,0x65,0x72,0x20,
 0x62,0x79,0x20,0x44,0x65,0x64,0x65,0x43,0x6d,0x73,0x3c,0x2f,0x61,0x3e);
+*/
+//删除底部版权信息 for elliot
+$arrs1 = array();
+$arrs2 = array();
+
 
 //特殊操作
 if(isset($GLOBALS['arrs1']))
@@ -668,8 +674,8 @@ if (!function_exists('CheckSql'))
         }
         $clean .= substr($db_string, $old_pos);
         $clean = trim(strtolower(preg_replace(array('~\s+~s' ), array(' '), $clean)));
-        
-        if (strpos($clean, '@') !== FALSE  OR strpos($clean,'char(')!== FALSE OR strpos($clean,'"')!== FALSE 
+
+        if (strpos($clean, '@') !== FALSE  OR strpos($clean,'char(')!== FALSE OR strpos($clean,'"')!== FALSE
         OR strpos($clean,'$s$$s$')!== FALSE)
         {
             $fail = TRUE;

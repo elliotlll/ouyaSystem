@@ -66,7 +66,7 @@ else if($dopost=='savequick')
     tempindex,templist,temparticle,modname,namerule,namerule2,ispart,corank,description,keywords,seotitle,moresite,siteurl,sitepath,ishidden,`cross`,`crossid`,`content`,`smalltypes`)
     VALUES('~reid~','~topid~','~rank~','~typename~','~typedir~','$isdefault','$defaultname','$issend','$channeltype',
     '$tempindex','$templist','$temparticle','default','$namerule','$namerule2','0','0','','','~typename~','0','','','0','0','0','','')";
-    
+
     if (empty($savetype))
     {
         foreach($_POST as $k=>$v)
@@ -116,7 +116,7 @@ else if($dopost=='savequick')
             }
         }
     } else {
-    
+
 
         $row = $dsql->GetOne("SELECT `typedir` FROM `#@__arctype` WHERE `id`={$reid}");
         foreach($_POST as $k=>$v)
@@ -138,12 +138,12 @@ else if($dopost=='savequick')
                     break;
                 case 'typepath':
                     $toptypedir = isset($row['typedir'])? $row['typedir'].'/'.$toptypedir : '/'.$toptypedir;
-                    break; 
+                    break;
                 default:
                     $toptypedir = '/'.$toptypedir;
                     break;
             }
-            
+
             if(empty($toptypename))
             {
                 continue;
@@ -168,14 +168,14 @@ else if($dopost=='save')
     $smalltypes = '';
     if(empty($smalltype)) $smalltype = '';
     if(is_array($smalltype)) $smalltypes = join(',',$smalltype);
-    
+
     if(!isset($sitepath)) $sitepath = '';
     if($topid==0 && $reid>0) $topid = $reid;
     if($ispart!=0) $cross = 0;
-    
+
     $description = Html2Text($description,1);
     $keywords = Html2Text($keywords,1);
-    
+
     if($ispart != 2 )
     {
         //栏目的参照目录
@@ -223,7 +223,7 @@ else if($dopost=='save')
             exit();
         }
     }
-    
+
     $in_query = "INSERT INTO `#@__arctype`(reid,topid,sortrank,typename,typedir,isdefault,defaultname,issend,channeltype,
     tempindex,templist,temparticle,modname,namerule,namerule2,
     ispart,corank,description,keywords,seotitle,moresite,siteurl,sitepath,ishidden,`cross`,`crossid`,`content`,`smalltypes`)
@@ -250,7 +250,7 @@ else if($dopost=='save')
 if($dopost=='')
 {
     $channelid = 1;
-    $issend = 1;
+    $issend = 0;
     $corank = 0;
     $reid = 0;
     $topid = 0;

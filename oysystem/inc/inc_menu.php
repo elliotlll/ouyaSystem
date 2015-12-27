@@ -77,15 +77,6 @@ $adminMenu2 = "<m:top item='7_' name='模板管理' display='none' rank='temp_On
   <m:item name='系统错误修复[S]' link='sys_repair.php' rank='sys_verify' target='main' />
 </m:top>
 
-<m:top item='10_6_' name='支付工具' display='none' rank='sys_Data'>
-  <m:item name='点卡产品分类' link='cards_type.php' rank='sys_Data' target='main' />
-  <m:item name='点卡产品管理' link='cards_manage.php' rank='sys_Data' target='main' />
-  <m:item name='会员产品分类' link='member_type.php' rank='sys_Data' target='main' />
-  <m:item name='会员消费记录' link='member_operations.php' rank='sys_Data' target='main' />
-  <m:item name='商店订单记录' link='shops_operations.php' rank='sys_Data' target='main' />
-  <m:item name='支付接口设置' link='sys_payment.php' .php' rank='sys_Data' target='main' />
-  <m:item name='配货方式设置' link='shops_delivery.php' rank='sys_Data' target='main' />
-</m:top>
     ";
 }
 $remoteMenu = ($cfg_remote_site=='Y')? "<m:item name='远程服务器同步' link='makeremote_all.php' rank='sys_ArcBatch' target='main' />" : "";
@@ -107,7 +98,6 @@ $menusMain = "
 </m:top>
 
 <m:top item='1_' name='附件管理' display='none' rank='sys_Upload,sys_MyUpload,plus_文件管理器'>
-  <m:item name='上传新文件' link='media_add.php' rank='' target='main' />
   <m:item name='附件数据管理' link='media_main.php' rank='sys_Upload,sys_MyUpload' target='main' />
   <m:item name='文件式管理器' link='media_main.php?dopost=filemanager' rank='plus_文件管理器' target='main' />
 </m:top>

@@ -49,7 +49,7 @@ $actionSearch[0] =array(
     )
 );
 $actionSearch[1] = array(
-    'toptitle' => '核心', 
+    'toptitle' => '核心',
     'title' => '内容管理',
     'description' => '网站对应内容模型的文档管理',
     'soniterm' => array(
@@ -62,7 +62,7 @@ $actionSearch[1] = array(
     )
 );
 $actionSearch[2] = array(
-    'toptitle' => '核心', 
+    'toptitle' => '核心',
     'title' => '附件管理',
     'description' => '所有上传的附件管理',
     'soniterm' => array(
@@ -87,7 +87,7 @@ $actionSearch[2] = array(
     )
 );
 $actionSearch[3] = array(
-    'toptitle' => '核心', 
+    'toptitle' => '核心',
     'title' => '频道模型',
     'description' => '所有上传的附件管理',
     'soniterm' => array(
@@ -124,7 +124,7 @@ $actionSearch[3] = array(
     )
 );
 $actionSearch[4] = array(
-    'toptitle' => '核心', 
+    'toptitle' => '核心',
     'title' => '批量维护',
     'description' => '对一些东西进行批量的删除，添加等等',
     'soniterm' => array(
@@ -179,7 +179,7 @@ $actionSearch[4] = array(
     )
 );
 $actionSearch[5] = array(
-    'toptitle' => '会员', 
+    'toptitle' => '没了', 
     'title' => '会员管理',
     'description' => '注册会员及积分等配置管理',
     'soniterm' => array(
@@ -234,7 +234,7 @@ $actionSearch[5] = array(
     )
 );
 $actionSearch[6] = array(
-    'toptitle' => '会员', 
+    'toptitle' => '会员',
     'title' => '支付工具',
     'description' => '站点财务相关设置,包含点卡,商店订单等操作',
     'soniterm' => array(
@@ -289,7 +289,7 @@ $actionSearch[6] = array(
     )
 );
 $actionSearch[7] = array(
-    'toptitle' => '生成', 
+    'toptitle' => '生成',
     'title' => '自动任务',
     'description' => '一键生成静态管理',
     'soniterm' => array(
@@ -308,7 +308,7 @@ $actionSearch[7] = array(
     )
 );
 $actionSearch[8] = array(
-    'toptitle' => '生成', 
+    'toptitle' => '生成',
     'title' => 'HTML更新',
     'description' => '针对主页、栏目、文档、专题等等进行更新',
     'soniterm' => array(
@@ -329,7 +329,7 @@ $actionSearch[8] = array(
             'description' =>'对每个栏目下的文档进行静态HTML页面的生成',
             'purview' =>'sys_MakeHtml',
             'linkurl' =>'makehtml_archives.php'
-        ),    
+        ),
         3  =>  array(
             'title' =>'更新网站地图',
             'description' =>'生成网站地图的静态HTML页面',
@@ -357,7 +357,7 @@ $actionSearch[8] = array(
     )
 );
 $actionSearch[9] = array(
-    'toptitle' => '模板', 
+    'toptitle' => '模板',
     'title' => '模板管理',
     'description' => '针对主页、栏目、文档、专题等等进行更新',
     'soniterm' => array(
@@ -378,7 +378,7 @@ $actionSearch[9] = array(
             'description' =>'管理自定义标记',
             'purview' =>'temp_MyTag',
             'linkurl' =>'mytag_main.php'
-        ),    
+        ),
         3  =>  array(
             'title' =>'智能标记向导',
             'description' =>'可以根据需要生成相应的调用标签',
@@ -394,7 +394,7 @@ $actionSearch[9] = array(
     )
 );
 $actionSearch[10] = array(
-    'toptitle' => '系统', 
+    'toptitle' => '系统',
     'title' => '系统设置',
     'description' => '对网站的一些基本信息和配置进行管理',
     'soniterm' => array(
@@ -497,7 +497,7 @@ $actionSearch[10] = array(
     )
 );
 $actionSearch[11] = array(
-    'toptitle' => '采集', 
+    'toptitle' => '采集',
     'title' => '采集管理',
     'description' => '内容采集管理操作',
     'soniterm' => array(
@@ -518,7 +518,7 @@ $actionSearch[11] = array(
             'description' =>'导入采集的规则',
             'purview' =>'co_GetOut',
             'linkurl' =>'co_get_corule.php'
-        ),    
+        ),
         3  =>  array(
             'title' =>'智能标记向导',
             'description' =>'可以根据需要生成相应的调用标签',

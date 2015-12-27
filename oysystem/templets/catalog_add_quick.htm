@@ -144,7 +144,7 @@ function showSeltype(objname)
            <select name='reid' onchange="showSeltype(this)">
            <option value='0'>选择所属目录... </option>
             <?php echo $typeOptions;?>
-           </select> 
+           </select>
            （默认为顶级栏目）
            </td>
           </tr>
@@ -187,7 +187,7 @@ function showSeltype(objname)
           </tr>
           <tr>
             <td height="26" class='bline' style="padding-left:10px;">文章命名规则：</td>
-            <td class='bline'><input name="namerule" type="text" id="namerule" value="{typedir}/{Y}{M}{D}/{aid}.html" size="40" class="pubinputs" />
+            <td class='bline'><input name="namerule" type="text" id="namerule" value="{typedir}/ouya_{aid}.html" size="40" class="pubinputs" />
               <img src="images/help.gif" alt="帮助" width="16" height="16" border="0" style="cursor:pointer" onClick="ShowHide('helpvar2')" /> </td>
           </tr>
           <tr id='helpvar3' style='display:none'>
@@ -231,8 +231,8 @@ function showSeltype(objname)
                   <?php } ?>
                 </tbody>
               </table>
-              
-              
+
+
               <table id="addQuickRel" width="302"  border="0" cellpadding="3" cellspacing="1" bgcolor="#cfcfcf" style="display:none">
                 <tbody>
                   <tr bgcolor="#FBFCE2" align="center">

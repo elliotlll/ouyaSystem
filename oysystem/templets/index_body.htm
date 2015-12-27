@@ -60,26 +60,11 @@ $(function()
 </table>
 <div id="__testEvn"></div>
 <div id='mainmsg'>
-  <div class="column" id="column1"><!--左侧开始-->    
-        <dl class="dbox" id="item1">
-            <dt class='lside'><span class='l'><?php echo $cfg_soft_enname; ?> 更新消息</span></dt>
-            <dd>
-                <div id='updatetest'>
-                    <div id='updateinfos'>
-                        <?php
-                            echo "<div class='updatedvt'><b>您系统版本最后更新时间为：{$oktime} </b><br/>";
-                            echo " <a href='javascript:LoadUpdateInfos();' class='np coolbg'>进行在线更新</a> &nbsp; \r\n";
-                            echo " <a href='sys_repair.php' class='np coolbg'>系统错误修复</a></div>\r\n";
-                            echo "<iframe name='stafrm' src='{$offUrl}&uptime={$oktime}' frameborder='0' id='stafrm' width='98%' height='50'></iframe>";
-                        ?>
-                    </div>
-                 </div>
-            </dd>
-        </dl><!--更新消息结束-->        
+  <div class="column" id="column1"><!--左侧开始-->         
         <dl class='dbox' id="item2">
             <dt class='lside'><span class='l'>商业授权查询</span></dt>
-            <dd>               
-                <iframe name="showauth" src="index_body.php?dopost=showauth" width="100%" frameborder="0" scrolling="no" marginwidth="10" marginheight="10" id="showauth"></iframe>                
+            <dd>
+                <iframe name="showauth" src="index_body.php?dopost=showauth" width="100%" frameborder="0" scrolling="no" marginwidth="10" marginheight="10" id="showauth"></iframe>
             </dd>
         </dl><!--更新消息结束-->
         <dl class='dbox' id="item3">
@@ -105,7 +90,7 @@ $(function()
                 </div>
             </dd>
 
-        </dl><!--快捷操作结束-->   
+        </dl><!--快捷操作结束-->
         <dl class="dbox" id="item4">
             <dt class='lside'><div class='l'>系统基本信息</div></dt>
             <dd class='intable'>
@@ -263,7 +248,7 @@ $(function()
     </table>
             </dd>
         </dl><!--最新文档结束-->
-        
+
     </div>
 </div>
 <br style='clear:both'/>

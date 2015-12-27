@@ -224,7 +224,7 @@ function SpGetEditor($fname,$fvalue,$nheight="350",$etype="Basic",$gtype="print"
             return $code;
         }
     }
-    else { 
+    else {
         /*
         // ------------------------------------------------------------------------
         // 当前版本,暂时取消dedehtml编辑器的支持
@@ -253,6 +253,7 @@ function SpGetEditor($fname,$fvalue,$nheight="350",$etype="Basic",$gtype="print"
  *
  * @return    void
  */
+ /*
 function SpGetNewInfo()
 {
     global $cfg_version,$dsql;
@@ -278,9 +279,9 @@ function SpGetNewInfo()
     $query = " SELECT COUNT(*) AS dd FROM `#@__arctiny` ";
     $row2 = $dsql->GetOne($query);
     if ( $row2 ) $add_query .= "&acount={$row2['dd']}";
-    
+
     $offUrl = "http://new"."ver.a"."pi.de"."decms.com/index.php?c=info57&version={$cfg_version}&formurl={$nurl}&phpver={$phpv}&os={$sp_os}&mysqlver={$mysql_ver}{$add_query}";
     return $offUrl;
 }
-
+*/
 ?>

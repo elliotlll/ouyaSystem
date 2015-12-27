@@ -225,7 +225,7 @@ if ( ! function_exists('GetAlabNum'))
  */
 if ( ! function_exists('GetPinyin'))
 {
-    function GetPinyin($str, $ishead=0, $isclose=1)
+    function GetPinyin($str, $ishead=1, $isclose=1)
     {
         global $cfg_soft_lang;
         if(!function_exists('SpGetPinyin'))

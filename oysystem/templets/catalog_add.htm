@@ -228,7 +228,7 @@ function CheckCross()
           <tr>
             <td class='bline' height="26" style="padding-left:10px;"><font color='red'>内容模型：</font></td>
             <td class='bline'>
-                
+
            <select name="channeltype" id="channeltype" style="width:200px" onChange="ParTemplet(this)">
             <?php
             foreach($channelArray as $k=>$arr)
@@ -307,19 +307,19 @@ function CheckCross()
           <tr>
             <td class='bline' height="26" style="padding-left:10px;">目录相对位置：</td>
             <td class='bline'>
-                    <input name="referpath" type="radio" id="truepath1" class="np" value="parent" checked="chekced" />
+                    <input name="referpath" type="radio" id="truepath1" class="np" value="parent" />
               上级目录
               <?php
               if($moresite==0){
               ?>
-              <input name="referpath" type="radio" id="truepath2" class="np" value="cmspath" />
+              <input name="referpath" type="radio" id="truepath2" class="np" value="cmspath" checked="chekced" />
               CMS根目录
               <input name="referpath" type="radio" id="truepath3" class="np" value="basepath" />
               站点根目录
               <?php } ?>
               </td>
           </tr>
-          
+
           <tr>
             <td height="26" style="padding-left:10px;">栏目列表选项：</td>
             <td>
@@ -390,7 +390,7 @@ function CheckCross()
                         }
                     }
                     ?>
-                </select>    
+                </select>
                 按 Ctrl 多选，不选系统将调用全部分类，在<a href='stepselect_main.php'>“<u>联动类别管理</u>”</a>中管理
             </td>
           </tr>
